@@ -2,7 +2,7 @@
 CFLAGS_STRIP = -fdata-sections -ffunction-sections
 LDFLAGS_STRIP = --gc-sections
 
-GCC_RISCV = riscv32-unknown-elf-gcc -march=rv32i -O2 -c -nostdinc -fno-builtin -ffixed-s10 -ffixed-s11 -I ./../../hf_risc_test/include $(CFLAGS_STRIP) -DDEBUG_PORT
+GCC_RISCV = riscv32-unknown-elf-gcc -march=rv32i -O2 -c -nostdinc -fno-builtin -I ./../../hf_risc_test/include $(CFLAGS_STRIP) -DDEBUG_PORT -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -mno-relax
 AS_RISCV = riscv32-unknown-elf-as -m32
 LD_RISCV = riscv32-unknown-elf-ld -melf32lriscv
 DUMP_RISCV = riscv32-unknown-elf-objdump #-Mno-aliases

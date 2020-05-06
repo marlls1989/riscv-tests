@@ -1,3 +1,4 @@
+	.section .text.init
 	.global _entry
 _entry:
 	/* zero-initialize all registers */
@@ -43,6 +44,8 @@ _entry:
 	.global n ## _ret; \
 	n ## _ret:
 
+	TEST(simple)
+
 	TEST(lui)
 	TEST(auipc)
 	TEST(j)
@@ -84,8 +87,6 @@ _entry:
 	TEST(sra)
 	TEST(or)
 	TEST(and)
-
-	TEST(simple)
 
 #	TEST(div)
 #	TEST(divu)

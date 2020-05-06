@@ -23,14 +23,16 @@ TEST_FUNC_NAME:																	\
  beq	a1,zero,.prname_done;											\
  sb	a1,0(a2);																		\
  jal	zero,.prname_next;												\
-.test_name:																			\
- .ascii TEST_FUNC_TXT;													\
- .byte 0x00;																		\
- .balign 4;																			\
 .prname_done:																		\
  addi	a1,zero,'.';															\
  sb	a1,0(a2);																		\
- sb	a1,0(a2);
+ sb	a1,0(a2); \
+ .data; \
+.test_name:																			\
+ .ascii TEST_FUNC_TXT;													\
+ .byte 0x00;																		\
+ .balign 4; \
+ .text;
 
 #define RVTEST_PASS															\
 	li	  a0,0x80001000; 													\

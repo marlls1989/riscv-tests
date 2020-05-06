@@ -11,11 +11,8 @@ SECTIONS {
 	. = 0;
 
 	.text : {
-			*(.text.init)
-	}
-
-	.text : {
 			_text = .;
+			*(.text.init)
 			*(.text)
 			*(.text.*)
 			_etext = .;
